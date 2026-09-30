@@ -1,0 +1,242 @@
+/* Estilos para a aba Analisador */
+
+/* Conteúdo da aba */
+.analyzer-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  height: 100%;
+}
+
+/* Controles do analisador */
+.analyzer-controls {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.analyzer-button {
+  background-color: var(--primary-color);
+  color: var(--light-text);
+  border: none;
+  border-radius: 4px;
+  padding: 8px 12px;
+  font-size: 13px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: var(--transition);
+}
+
+.analyzer-button:hover {
+  background-color: var(--secondary-color);
+}
+
+.analyzer-button.danger {
+  background-color: var(--accent-color);
+}
+
+.analyzer-button.danger:hover {
+  background-color: #ff8585;
+}
+
+/* Status da análise */
+.analysis-status {
+  font-size: 13px;
+  padding: 8px 12px;
+  border-radius: 4px;
+  background-color: #f5f7ff;
+  margin-bottom: 10px;
+}
+
+.analysis-status-normal {
+  color: #666;
+  background-color: #f5f7ff;
+}
+
+.analysis-status-running {
+  color: var(--primary-color);
+  background-color: #e7f3ff;
+}
+
+.analysis-status-complete {
+  color: #34c759;
+  background-color: #e5ffed;
+}
+
+.analysis-status-error {
+  color: #ff3b30;
+  background-color: #fff0f0;
+}
+
+/* Resumo da análise */
+.analyzer-summary {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.analyzer-stat {
+  background-color: white;
+  border-radius: 6px;
+  padding: 10px;
+  text-align: center;
+  border-left: 3px solid var(--primary-color);
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.analyzer-stat-value {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+.analyzer-stat-label {
+  font-size: 11px;
+  color: #666;
+}
+
+/* Seções de resultados */
+.analyzer-section {
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.analyzer-section-header {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 10px 15px;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.analyzer-section-content {
+  padding: 10px 15px;
+}
+
+.analyzer-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.analyzer-list li {
+  padding: 8px 0;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 13px;
+  color: #333;
+  display: flex;
+  justify-content: space-between;
+}
+
+.analyzer-list li:last-child {
+  border-bottom: none;
+}
+
+.analyzer-detail-sigla {
+  font-weight: 600;
+  color: #666;
+  background-color: #f5f5f5;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 11px;
+}
+
+/* Mensagem de erro */
+.analyzer-error {
+  text-align: center;
+  padding: 30px 20px;
+  color: #ff3b30;
+}
+
+.analyzer-error i {
+  font-size: 32px;
+  margin-bottom: 15px;
+}
+
+.analyzer-error p {
+  margin: 5px 0;
+}
+
+.analyzer-error-help {
+  font-size: 12px;
+  color: #666;
+  margin-top: 15px;
+}
+
+/* Animações */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.analysis-status-running {
+  animation: pulse 1.5s infinite;
+}
+
+/* Responsivo */
+@media (max-width: 400px) {
+  .analyzer-summary {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Tema escuro */
+@media (prefers-color-scheme: dark) {
+  .analyzer-stat {
+    background-color: #424952;
+  }
+  
+  .analyzer-section {
+    background-color: #424952;
+  }
+  
+  .analyzer-list li {
+    border-bottom-color: #555;
+    color: #eee;
+  }
+  
+  .analyzer-detail-sigla {
+    background-color: #555;
+    color: #eee;
+  }
+  
+  .analysis-status-normal {
+    color: #bbb;
+    background-color: #383e48;
+  }
+  
+  .analysis-status-running {
+    color: #a8c7ff;
+    background-color: #2a3848;
+  }
+  
+  .analysis-status-complete {
+    color: #8feca3;
+    background-color: #243629;
+  }
+  
+  .analysis-status-error {
+    color: #ff8f89;
+    background-color: #3a2829;
+  }
+  
+  .analyzer-error-help {
+    color: #bbb;
+  }
+}

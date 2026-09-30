@@ -1,0 +1,53 @@
+{
+  "manifest_version": 3,
+  "name": "DOPM Intelligence - PDF & Web Analyzer",
+  "version": "2.2",
+  "description": "Contador avançado de palavras com dashboard para análise de conteúdo web e PDF do Diário Oficial da Polícia Militar.",
+  "permissions": [
+    "activeTab", 
+    "storage", 
+    "scripting"
+  ],
+  "host_permissions": [
+    "<all_urls>",
+    "file://*/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>", "file://*/*"],
+      "js": ["content-pdf.js"],
+      "run_at": "document_idle",
+      "all_frames": true
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "categories.json",
+        "pdf-styles.css",
+        "embedded-chart.js",
+        "fallback-chart.js"
+      ],
+      "matches": ["<all_urls>", "file://*/*"]
+    }
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self';"
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}

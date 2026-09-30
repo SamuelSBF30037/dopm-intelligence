@@ -1,0 +1,467 @@
+{
+  "config": {
+    "caseSensitive": false,
+    "wholeWords": true,
+    "autoCount": true,
+    "pdfExtraction": {
+      "maxPages": 50,
+      "timeout": 30000,
+      "strategies": ["pdfjs", "selection", "canvas"],
+      "enableOCR": false,
+      "chunkSize": 10,
+      "processingDelay": 200
+    }
+  },
+  "categories": [
+    {
+      "name": "👥 Produtividade Individual",
+      "description": "Monitora atividade e produtividade por pessoa/setor",
+      "terms": [
+        { 
+          "term": "SBF", 
+          "alias": "TEN FERNANDES",
+          "description": "Tenente Fernandes - Sigla SBF"
+        },
+        { 
+          "term": "AMP", 
+          "alias": "SUB PORTO",
+          "description": "Subtenente Porto - Sigla AMP"
+        },
+        { 
+          "term": "RNMM", 
+          "alias": "2SGT NIEDSON",
+          "description": "2º Sargento Niedson - Sigla RNMM"
+        },
+        { 
+          "term": "JBR", 
+          "alias": "2SGT JEANE",
+          "description": "2º Sargento Jeane - Sigla JBR"
+        },
+        { 
+          "term": "CTJR", 
+          "alias": "2SGT CINTIA",
+          "description": "2º Sargento Cintia - Sigla CTJR"
+        },
+        { 
+          "term": "CRDO", 
+          "alias": "2SGT CAROLINA",
+          "description": "2º Sargento Carolina - Sigla CRDO"
+        },
+        { 
+          "term": "HARIJ", 
+          "alias": "2SGT HASSAN",
+          "description": "2º Sargento Hassan - Sigla HARIJ"
+        },
+        { 
+          "term": "DTO", 
+          "alias": "3SGT TOBIAS",
+          "description": "3º Sargento Tobias - Sigla DTO"
+        },
+        { 
+          "term": "FOS", 
+          "alias": "3SGT FABIANE",
+          "description": "3º Sargento Fabiane - Sigla FOS"
+        }
+      ]
+    },
+    {
+      "name": "📋 Tipos de Matéria Oficial",
+      "description": "Categoriza diferentes tipos de documentos e processos",
+      "terms": [
+        { 
+          "term": ": LICENÇA PARA TRATAMENTO DE SAÚDE", 
+          "alias": "LICENÇA MÉDICA",
+          "description": "Licenças para tratamento de saúde"
+        },
+        { 
+          "term": ": TRAT\\. DE SAÚDE DE PESSOA DA FAMÍLIA", 
+          "alias": "LICENÇA FAMILIAR",
+          "type": "regex",
+          "description": "Licenças para cuidar de familiares"
+        },
+        { 
+          "term": ": LICENÇA PATERNIDADE, EM", 
+          "alias": "LICENÇA PATERNIDADE",
+          "description": "Licenças paternidade"
+        },
+        { 
+          "term": ": LICENÇA MATERNIDADE, EM", 
+          "alias": "LICENÇA MATERNIDADE",
+          "description": "Licenças maternidade"
+        },
+        { 
+          "term": ": LICENÇA ESPECIAL", 
+          "alias": "LICENÇA ESPECIAL",
+          "description": "Licenças especiais diversas"
+        },
+        { 
+          "term": "RECONCEDO LICENÇA ESPECIAL", 
+          "alias": "RECONCESSÃO ESPECIAL",
+          "description": "Reconcessões de licenças especiais"
+        },
+        { 
+          "term": "PAGAMENTO DE INDENIZAÇÃO", 
+          "alias": "INDENIZAÇÃO",
+          "description": "Pagamentos de indenização"
+        },
+        { 
+          "term": "APRESENTOU SEU CERTIFICADO", 
+          "alias": "CERTIFICADOS",
+          "description": "Apresentação de certificados"
+        },
+        { 
+          "term": "\\(ELOGIO INDIVIDUAL\\)", 
+          "alias": "ELOGIOS",
+          "type": "regex",
+          "description": "Elogios individuais"
+        },
+        { 
+          "term": "ATA DE SAÚDE", 
+          "alias": "ATAS DE SAÚDE",
+          "description": "Atas de saúde"
+        },
+        { 
+          "term": "ASSUNTO\\(S\\) DIVERSO\\(S\\)", 
+          "alias": "ASSUNTOS DIVERSOS",
+          "type": "regex",
+          "description": "Assuntos diversos"
+        },
+        { 
+          "term": "TRANSFERIDO PARA A RESERVA", 
+          "alias": "TRANSFERÊNCIA RESERVA",
+          "description": "Transferências para a reserva"
+        },
+        { 
+          "term": "TRANSFIRO O", 
+          "alias": "TRANSFERÊNCIA UNIDADE",
+          "description": "Transferências de unidade"
+        },
+        { 
+          "term": "COMPORTAMENTO ALTERADO", 
+          "alias": "COMPORTAMENTO ALTERADO",
+          "description": "Registros de comportamento alterado"
+        }
+      ]
+    },
+    {
+      "name": "🏥 Detalhamento de Afastamentos",
+      "description": "Análise detalhada de todos os tipos de afastamentos e licenças",
+      "terms": [
+        { 
+          "term": ": LICENÇA PARA TRATAMENTO DE SAÚDE", 
+          "alias": "TRATAMENTO DE SAÚDE",
+          "description": "Licenças médicas para tratamento próprio"
+        },
+        { 
+          "term": ": RECONCESSÃO", 
+          "alias": "RECONCESSÃO",
+          "description": "Reconcessões de licenças"
+        },
+        { 
+          "term": ": FÉRIAS", 
+          "alias": "FÉRIAS",
+          "description": "Períodos de férias"
+        },
+        { 
+          "term": ": A TÍTULO DE RECOMPENSA", 
+          "alias": "RECOMPENSA",
+          "description": "Licenças prêmio/recompensa"
+        },
+        { 
+          "term": ": TRAT\\. DE SAÚDE DE PESSOA DA FAMÍLIA", 
+          "alias": "TRATAMENTO FAMILIAR",
+          "type": "regex",
+          "description": "Licenças para cuidar de familiares"
+        },
+        { 
+          "term": ": LICENÇA PATERNIDADE, EM", 
+          "alias": "LICENÇA PATERNIDADE",
+          "description": "Licenças paternidade"
+        },
+        { 
+          "term": ": LICENÇA MATERNIDADE, EM", 
+          "alias": "LICENÇA MATERNIDADE",
+          "description": "Licenças maternidade"
+        },
+        { 
+          "term": ": LUTO", 
+          "alias": "LICENÇA LUTO",
+          "description": "Licenças por luto"
+        },
+        { 
+          "term": ": NÚPCIAS", 
+          "alias": "LICENÇA NÚPCIAS",
+          "description": "Licenças para casamento"
+        },
+        { 
+          "term": ": LICENÇA ESPECIAL", 
+          "alias": "LICENÇA ESPECIAL GERAL",
+          "description": "Licenças especiais gerais"
+        },
+        { 
+          "term": "RECONCEDO LICENÇA ESPECIAL", 
+          "alias": "RECONCESSÃO ESPECIAL",
+          "description": "Reconcessões de licenças especiais"
+        }
+      ]
+    },
+    {
+      "name": "🏛️ Estrutura de Comandos",
+      "description": "Identificação de unidades, batalhões e comandos",
+      "terms": [
+        { 
+          "term": "MARCELO GRANJA", 
+          "alias": "COMANDO GERAL: CEL GRANJA",
+          "description": "Comandante Geral da PMGO"
+        },
+        { 
+          "term": "DURVALINO CÂMARA", 
+          "alias": "ESTADO MAIOR: CEL CAMARA",
+          "description": "Chefe do Estado Maior"
+        },
+        { 
+          "term": "DANIEL PIRES ALEIXO", 
+          "alias": "COMANDO DA ACADEMIA: CEL ALEIXO",
+          "description": "Comandante da Academia de Polícia"
+        },
+        { 
+          "term": "COMANDANTE DE ENSINO", 
+          "alias": "COMANDO DE ENSINO: TC QUEREN",
+          "description": "Comandante de Ensino"
+        },
+        { 
+          "term": "01º CRPM", 
+          "alias": "1º GOIÂNIA: CEL BATISTA",
+          "description": "1º Comando Regional - Goiânia"
+        },
+        { 
+          "term": "02º CRPM", 
+          "alias": "2º CRPM: TC MORAIS",
+          "description": "2º Comando Regional"
+        },
+        { 
+          "term": "ALYSON FERREIRA SOBRINHO", 
+          "alias": "3º CRPM: CEL ALYSON SOBRINHO",
+          "description": "Comandante do 3º CRPM"
+        },
+        { 
+          "term": "04º CRPM", 
+          "alias": "4º CRPM",
+          "description": "4º Comando Regional"
+        },
+        { 
+          "term": "36º BPM", 
+          "alias": "36º BPM - 2º CRPM",
+          "description": "36º Batalhão - 2º CRPM"
+        },
+        { 
+          "term": "41º BPM", 
+          "alias": "41º BPM - 2º CRPM",
+          "description": "41º Batalhão - 2º CRPM"
+        },
+        { 
+          "term": "48° BPM", 
+          "alias": "48º BPM - 4º CRPM",
+          "description": "48º Batalhão - 4º CRPM"
+        },
+        { 
+          "term": "\\d+º CRPM", 
+          "alias": "COMANDOS REGIONAIS",
+          "type": "regex",
+          "description": "Todos os Comandos Regionais numerados"
+        },
+        { 
+          "term": "\\d+º BPM", 
+          "alias": "BATALHÕES",
+          "type": "regex",
+          "description": "Todos os Batalhões numerados"
+        }
+      ]
+    },
+    {
+      "name": "📄 Identificação de Documentos",
+      "description": "Detecta diferentes tipos de processos e documentos oficiais",
+      "terms": [
+        { 
+          "term": "2025\\d{11}", 
+          "alias": "PROCESSOS SEI 2025",
+          "type": "regex",
+          "description": "Processos SEI do ano de 2025 (15 dígitos)"
+        },
+        { 
+          "term": "202[4-6]\\d{11}", 
+          "alias": "PROCESSOS SEI RECENTES",
+          "type": "regex",
+          "description": "Processos SEI dos anos 2024-2026"
+        },
+        { 
+          "term": "\\d{3}\\.\\d{3}\\.\\d{3}-\\d{2}", 
+          "alias": "CPF FORMATADO",
+          "type": "regex",
+          "description": "CPFs no formato xxx.xxx.xxx-xx"
+        },
+        { 
+          "term": "\\b\\d{11}\\b", 
+          "alias": "CPF SEM FORMATO",
+          "type": "regex",
+          "description": "CPFs sem pontuação (11 dígitos)"
+        },
+        { 
+          "term": "\\d{1,3}\\.\\d{3}\\.\\d{3}", 
+          "alias": "RG FORMATADO",
+          "type": "regex",
+          "description": "RGs no formato x.xxx.xxx"
+        },
+        { 
+          "term": "\\b[2-4][0-9]{4}\\b", 
+          "alias": "RG MILITAR",
+          "type": "regex",
+          "description": "RGs militares (5 dígitos iniciando em 2, 3 ou 4)"
+        },
+        { 
+          "term": "PORTARIA\\s+(?:Nº\\s*)?\\d+", 
+          "alias": "PORTARIAS",
+          "type": "regex",
+          "description": "Portarias numeradas"
+        },
+        { 
+          "term": "RESOLUÇÃO\\s+(?:Nº\\s*)?\\d+", 
+          "alias": "RESOLUÇÕES",
+          "type": "regex",
+          "description": "Resoluções numeradas"
+        }
+      ]
+    },
+    {
+      "name": "👨‍💼 Cadastradores e Responsáveis",
+      "description": "Identifica responsáveis pelo cadastramento e processamento",
+      "terms": [
+        { 
+          "term": "Robson Niedson", 
+          "alias": "2SGT NIEDSON",
+          "description": "2º Sargento Niedson - Cadastrador"
+        },
+        { 
+          "term": "Jeane", 
+          "alias": "2SGT JEANE",
+          "description": "2º Sargento Jeane - Cadastradora"
+        },
+        { 
+          "term": "Cintia", 
+          "alias": "2SGT CINTIA",
+          "description": "2º Sargento Cintia - Cadastradora"
+        },
+        { 
+          "term": "Carolina", 
+          "alias": "2SGT CAROLINA",
+          "description": "2º Sargento Carolina - Cadastradora"
+        },
+        { 
+          "term": "Hassan", 
+          "alias": "2SGT HASSAN",
+          "description": "2º Sargento Hassan - Cadastrador"
+        },
+        { 
+          "term": "Tobias", 
+          "alias": "3SGT TOBIAS",
+          "description": "3º Sargento Tobias - Cadastrador"
+        },
+        { 
+          "term": "Fabiane", 
+          "alias": "3SGT FABIANE",
+          "description": "3º Sargento Fabiane - Cadastradora"
+        }
+      ]
+    },
+    {
+      "name": "📅 Datas e Períodos",
+      "description": "Extrai informações temporais dos documentos",
+      "terms": [
+        { 
+          "term": "\\b(?:0[1-9]|[12]\\d|3[01])[/-](?:0[1-9]|1[0-2])[/-]202[4-5]\\b", 
+          "alias": "DATAS 2024-2025",
+          "type": "regex",
+          "description": "Datas no formato DD/MM/AAAA para 2024-2025"
+        },
+        { 
+          "term": "\\b202[4-5]\\b", 
+          "alias": "ANOS RECENTES",
+          "type": "regex",
+          "description": "Anos 2024 e 2025"
+        },
+        { 
+          "term": "\\b\\d+\\s+dias?\\b", 
+          "alias": "PERÍODOS EM DIAS",
+          "type": "regex",
+          "description": "Períodos expressos em dias"
+        },
+        { 
+          "term": "\\b\\d+\\s+m[eê]s(?:es)?\\b", 
+          "alias": "PERÍODOS EM MESES",
+          "type": "regex",
+          "description": "Períodos expressos em meses"
+        }
+      ]
+    },
+    {
+      "name": "💰 Valores e Indenizações",
+      "description": "Identifica valores financeiros e indenizações",
+      "terms": [
+        { 
+          "term": "R\\$\\s*\\d{1,3}(?:\\.\\d{3})*(?:,\\d{2})?", 
+          "alias": "VALORES EM R$",
+          "type": "regex",
+          "description": "Valores monetários em reais"
+        },
+        { 
+          "term": "\\d{1,3}(?:\\.\\d{3})*,\\d{2}", 
+          "alias": "VALORES NUMÉRICOS",
+          "type": "regex",
+          "description": "Valores numéricos no formato brasileiro"
+        },
+        { 
+          "term": "INDENIZAÇÃO\\s+DE\\s+TRANSPORTE", 
+          "alias": "INDENIZAÇÃO TRANSPORTE",
+          "type": "regex",
+          "description": "Indenizações de transporte"
+        },
+        { 
+          "term": "AJUDA\\s+DE\\s+CUSTO", 
+          "alias": "AJUDA DE CUSTO",
+          "type": "regex",
+          "description": "Ajudas de custo"
+        }
+      ]
+    }
+  ],
+  "pdfSpecificSettings": {
+    "extractionMethods": {
+      "preferredOrder": ["pdfjs", "selection", "canvas"],
+      "fallbackEnabled": true,
+      "maxRetries": 3
+    },
+    "performance": {
+      "chunkSize": 10,
+      "processingDelay": 200,
+      "memoryLimit": "50MB"
+    },
+    "compatibility": {
+      "supportedFormats": ["pdf", "application/pdf"],
+      "minChromeVersion": 88,
+      "requiresPDFJS": true
+    }
+  },
+  "examples": {
+    "basicUsage": "Abra um PDF do Diário Oficial no Chrome e execute a extensão",
+    "regexUsage": "Use 2025\\d{11} para encontrar processos SEI de 2025",
+    "pdfPerformance": "PDFs menores (< 10 páginas) são processados mais rapidamente"
+  },
+  "metadata": {
+    "version": "2.2",
+    "lastUpdated": "2025-01-27",
+    "totalCategories": 10,
+    "totalTerms": 80,
+    "regexPatterns": 22,
+    "pdfOptimized": true
+  }
+}

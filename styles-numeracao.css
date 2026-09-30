@@ -1,0 +1,364 @@
+/* Estilos para o módulo de análise de numeração */
+
+/* Aba de Numeração */
+.numeracao-tab {
+  display: none;
+  padding: 15px;
+}
+
+.numeracao-tab.active {
+  display: block;
+}
+
+/* Formulário de Configuração */
+.numeracao-config {
+  background-color: var(--light-text);
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 15px;
+  box-shadow: var(--shadow);
+}
+
+.numeracao-config h3 {
+  font-size: 16px;
+  margin-bottom: 12px;
+  color: var(--primary-color);
+}
+
+.config-form {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.input-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.input-group label {
+  font-size: 12px;
+  color: #666;
+}
+
+.input-group input {
+  padding: 8px 12px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+}
+
+.analisar-btn {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 15px;
+  cursor: pointer;
+  font-weight: 500;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s;
+}
+
+.analisar-btn:hover {
+  background-color: var(--secondary-color);
+}
+
+.analisar-btn i {
+  margin-right: 5px;
+}
+
+/* Seção de Estatísticas */
+.estatisticas-numeracao {
+  margin-bottom: 15px;
+}
+
+.estatisticas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  gap: 10px;
+}
+
+.estatistica-card {
+  background-color: #f5f7ff;
+  border-radius: 6px;
+  padding: 10px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  border-left: 3px solid var(--primary-color);
+}
+
+.estatistica-valor {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--primary-color);
+  margin-bottom: 5px;
+}
+
+.estatistica-label {
+  font-size: 11px;
+  color: #666;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+}
+
+.estatistica-card.alerta {
+  border-left-color: #ff6b6b;
+}
+
+.estatistica-card.alerta .estatistica-valor {
+  color: #ff6b6b;
+}
+
+.estatistica-card.sucesso {
+  border-left-color: #46c93a;
+}
+
+.estatistica-card.sucesso .estatistica-valor {
+  color: #46c93a;
+}
+
+/* Resultados Detalhados */
+.resultados-numeracao {
+  background-color: var(--light-text);
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 15px;
+  box-shadow: var(--shadow);
+}
+
+.resultado-secao {
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.resultado-secao:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.resultado-secao h3 {
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.resultado-secao h3 i {
+  margin-right: 8px;
+  color: var(--primary-color);
+}
+
+.resultado-conteudo {
+  padding-left: 24px;
+}
+
+.sequencias-texto {
+  background-color: #f5f7ff;
+  padding: 10px;
+  border-radius: 4px;
+  font-family: monospace;
+  font-size: 13px;
+  word-break: break-all;
+  color: #333;
+  line-height: 1.5;
+}
+
+.lacunas-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.lacuna-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 10px;
+  background-color: #f5f7ff;
+  border-radius: 4px;
+}
+
+.lacuna-sequencia {
+  font-family: monospace;
+  font-weight: 600;
+  color: #ff6b6b;
+}
+
+.lacuna-quantidade {
+  font-size: 12px;
+  color: #666;
+}
+
+.sucesso-sequencia h3 i {
+  color: #46c93a;
+}
+
+.alerta-duplicatas h3 i {
+  color: #ffb347;
+}
+
+/* Mensagens */
+.mensagem-info, .mensagem-erro {
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+
+.mensagem-info {
+  background-color: #e7f3ff;
+  color: #0056b3;
+}
+
+.mensagem-erro {
+  background-color: #ffe7e7;
+  color: #d32f2f;
+}
+
+.mensagem-info i, .mensagem-erro i {
+  font-size: 18px;
+  margin-right: 10px;
+}
+
+/* Gráficos */
+.graficos-numeracao {
+  background-color: var(--light-text);
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: var(--shadow);
+  height: 240px;
+  position: relative;
+}
+
+.chart-fallback {
+  width: 100%;
+  padding: 20px;
+  text-align: center;
+}
+
+.barra-progresso {
+  height: 24px;
+  background-color: #f0f0f0;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.barra-progresso-valor {
+  height: 100%;
+  background-color: var(--primary-color);
+  border-radius: 12px;
+  transition: width 1s ease-in-out;
+}
+
+.barra-progresso-label {
+  font-size: 13px;
+  color: #666;
+}
+
+.resultado-vazio {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 20px;
+  text-align: center;
+  color: #666;
+}
+
+.resultado-vazio i {
+  font-size: 36px;
+  color: #ccc;
+  margin-bottom: 15px;
+}
+
+.resultado-vazio p {
+  margin-bottom: 10px;
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  .numeracao-config, .resultados-numeracao, .graficos-numeracao {
+    background-color: #424952;
+  }
+  
+  .estatistica-card {
+    background-color: #383e48;
+  }
+  
+  .estatistica-label {
+    color: #bbb;
+  }
+  
+  .resultado-secao {
+    border-bottom-color: #555;
+  }
+  
+  .resultado-secao h3 {
+    color: #e0e0e0;
+  }
+  
+  .sequencias-texto, .lacuna-item {
+    background-color: #383e48;
+    color: #e0e0e0;
+  }
+  
+  .lacuna-sequencia {
+    color: #ff8f8f;
+  }
+  
+  .lacuna-quantidade {
+    color: #bbb;
+  }
+  
+  .input-group label {
+    color: #bbb;
+  }
+  
+  .input-group input {
+    background-color: #383e48;
+    border-color: #555;
+    color: #e0e0e0;
+  }
+  
+  .mensagem-info {
+    background-color: #2a3848;
+    color: #a8c7ff;
+  }
+  
+  .mensagem-erro {
+    background-color: #482a2a;
+    color: #ffa8a8;
+  }
+  
+  .barra-progresso {
+    background-color: #383e48;
+  }
+  
+  .barra-progresso-label {
+    color: #bbb;
+  }
+  
+  .resultado-vazio {
+    color: #bbb;
+  }
+  
+  .resultado-vazio i {
+    color: #555;
+  }
+}

@@ -1,0 +1,303 @@
+{
+  "config": {
+    "caseSensitive": false,
+    "wholeWords": true,
+    "autoCount": true,
+    "pdfExtraction": {
+      "maxPages": 50,
+      "timeout": 30000,
+      "strategies": ["pdfjs", "selection", "canvas"],
+      "enableOCR": false,
+      "chunkSize": 10,
+      "processingDelay": 200
+    }
+  },
+  "categories": [
+    {
+      "name": "👥 Produtividade Individual",
+      "description": "Monitora atividade e produtividade por pessoa/setor",
+      "terms": [
+        { "term": "ARBL",  "alias": "TEN APARECIDA",  "description": "Tenente Aparecida – Sigla ARBL" },
+        { "term": "SBF",   "alias": "TEN SAMUEL",     "description": "Tenente Samuel – Sigla SBF" },
+        { "term": "AMP",   "alias": "SUB ANTÔNIO",    "description": "Subtenente Antônio – Sigla AMP" },
+        { "term": "ALRR",  "alias": "1SGT ANDRÉ",     "description": "1º Sargento André – Sigla ALRR" },
+        { "term": "MOS",   "alias": "1SGT MISAEL",    "description": "1º Sargento Misael – Sigla MOS" },
+        { "term": "GJG",   "alias": "1SGT GLEYSON",   "description": "1º Sargento Gleyson – Sigla GJG" },
+        { "term": "ECB",   "alias": "1SGT EDNILSON",  "description": "1º Sargento Ednilson – Sigla ECB" },
+        { "term": "EAP",   "alias": "1SGT ELVÉCIO",   "description": "1º Sargento Elvécio – Sigla EAP" },
+        { "term": "ESCS",  "alias": "1SGT ELYSÂNGELA","description": "1º Sargento Elysângela – Sigla ESCS" },
+        { "term": "MSV",   "alias": "1SGT MARCELO",   "description": "1º Sargento Marcelo – Sigla MSV" },
+        { "term": "AMRL",  "alias": "2SGT ANA",       "description": "2º Sargento Ana – Sigla AMRL" },
+        { "term": "CTJR",  "alias": "2SGT CÍNTIA",    "description": "2º Sargento Cíntia – Sigla CTJR" },
+        { "term": "JSP",   "alias": "2SGT JOSIEL",    "description": "2º Sargento Josiel – Sigla JSP" },
+        { "term": "RDF",   "alias": "2SGT RICARDO",   "description": "2º Sargento Ricardo – Sigla RDF" },
+        { "term": "JBR",   "alias": "2SGT JEANE",     "description": "2º Sargento Jeane – Sigla JBR" },
+        { "term": "RVDS",  "alias": "2SGT REINALDO",  "description": "2º Sargento Reinaldo – Sigla RVDS" },
+        { "term": "RNMM",  "alias": "2SGT ROBSON",    "description": "2º Sargento Robson – Sigla RNMM" },
+        { "term": "JBM",   "alias": "2SGT JACÓ",      "description": "2º Sargento Jacó – Sigla JBM" },
+        { "term": "EBDS",  "alias": "2SGT EDUARDO",   "description": "2º Sargento Eduardo – Sigla EBDS" },
+        { "term": "HARIJ", "alias": "2SGT HASSAN",    "description": "2º Sargento Hassan – Sigla HARIJ" },
+        { "term": "DBF",   "alias": "2SGT DULCINÉIA", "description": "2º Sargento Dulcinéia – Sigla DBF" },
+        { "term": "FHCC",  "alias": "2SGT FILIPE",    "description": "2º Sargento Filipe – Sigla FHCC" },
+        { "term": "EPA",   "alias": "2SGT ENDERSON",  "description": "2º Sargento Enderson – Sigla EPA" },
+        { "term": "EFC",   "alias": "2SGT EMERSON",   "description": "2º Sargento Emerson – Sigla EFC" },
+        { "term": "CRDO",  "alias": "2SGT CAROLINA",  "description": "2º Sargento Carolina – Sigla CRDO" },
+        { "term": "ARV",   "alias": "3SGT ALINE",     "description": "3º Sargento Aline – Sigla ARV" },
+        { "term": "ETM",   "alias": "3SGT EDIO",      "description": "3º Sargento Edio – Sigla ETM" },
+        { "term": "DTO",   "alias": "3SGT DEIVID",    "description": "3º Sargento Deivid – Sigla DTO" },
+        { "term": "FOS",   "alias": "3SGT FABIANE",   "description": "3º Sargento Fabiane – Sigla FOS" },
+        { "term": "RRDS",  "alias": "CB REGINALDO",   "description": "Cabo Reginaldo – Sigla RRDS" }
+	{ "term": "THA",  "alias": "1SGT ANDRADE",   "description": "1º Sargento Andrade – Sigla THA" }
+	{ "term": "TVJB",  "alias": "2SGT VIVICIUS",   "description": "2º Sargento Vinicius – Sigla TVJB" }
+	{ "term": "JSP",  "alias": "1SGT JOSIEL",   "description": "1º Sargento Josiel – Sigla JSP" }
+      ]
+    },
+    {
+      "name": "📋 Tipos de Matéria Oficial",
+      "description": "Categoriza diferentes tipos de documentos e processos",
+      "terms": [
+        { 
+          "term": "PAGAMENTO DE INDENIZAÇÃO", 
+          "alias": "INDENIZAÇÃO",
+          "description": "Pagamentos de indenização"
+        },
+        { 
+          "term": "APRESENTOU SEU CERTIFICADO", 
+          "alias": "CERTIFICADOS",
+          "description": "Apresentação de certificados"
+        },
+        { 
+          "term": "\\(ELOGIO INDIVIDUAL\\)", 
+          "alias": "ELOGIOS",
+          "type": "regex",
+          "description": "Elogios individuais"
+        },
+        { 
+          "term": "ATA DE SAÚDE", 
+          "alias": "ATAS DE SAÚDE",
+          "description": "Atas de saúde"
+        },
+        { 
+          "term": "ASSUNTO\\(S\\) DIVERSO\\(S\\)", 
+          "alias": "ASSUNTOS DIVERSOS",
+          "type": "regex",
+          "description": "Assuntos diversos"
+        },
+        { 
+          "term": "TRANSFERIDO PARA A RESERVA", 
+          "alias": "TRANSFERÊNCIA RESERVA",
+          "description": "Transferências para a reserva"
+        },
+        { 
+          "term": "TRANSFIRO O", 
+          "alias": "TRANSFERÊNCIA UNIDADE",
+          "description": "Transferências de unidade"
+        },
+        { 
+          "term": "COMPORTAMENTO ALTERADO", 
+          "alias": "COMPORTAMENTO ALTERADO",
+          "description": "Registros de comportamento alterado"
+        }
+      ]
+    },
+    {
+      "name": "🏥 Detalhamento de Afastamentos",
+      "description": "Análise detalhada de todos os tipos de afastamentos e licenças",
+      "terms": [
+        { 
+          "term": ": LICENÇA PARA TRATAMENTO DE SAÚDE", 
+          "alias": "TRATAMENTO DE SAÚDE",
+          "description": "Licenças médicas para tratamento próprio"
+        },
+        { 
+          "term": ": RECONCESSÃO", 
+          "alias": "RECONCESSÃO",
+          "description": "Reconcessões de licenças"
+        },
+        { 
+          "term": ": FÉRIAS", 
+          "alias": "FÉRIAS",
+          "description": "Períodos de férias"
+        },
+        { 
+          "term": ": A TÍTULO DE RECOMPENSA", 
+          "alias": "RECOMPENSA",
+          "description": "Licenças prêmio/recompensa"
+        },
+        { 
+          "term": ": TRAT\\. DE SAÚDE DE PESSOA DA FAMÍLIA", 
+          "alias": "TRATAMENTO FAMILIAR",
+          "type": "regex",
+          "description": "Licenças para cuidar de familiares"
+        },
+        { 
+          "term": ": LICENÇA PATERNIDADE, EM", 
+          "alias": "LICENÇA PATERNIDADE",
+          "description": "Licenças paternidade"
+        },
+        { 
+          "term": ": LICENÇA MATERNIDADE, EM", 
+          "alias": "LICENÇA MATERNIDADE",
+          "description": "Licenças maternidade"
+        },
+        { 
+          "term": ": LUTO", 
+          "alias": "LICENÇA LUTO",
+          "description": "Licenças por luto"
+        },
+        { 
+          "term": ": NÚPCIAS", 
+          "alias": "LICENÇA NÚPCIAS",
+          "description": "Licenças para casamento"
+        },
+        { 
+          "term": ": LICENÇA ESPECIAL", 
+          "alias": "LICENÇA ESPECIAL GERAL",
+          "description": "Licenças especiais gerais"
+        },
+        { 
+          "term": "RECONCEDO LICENÇA ESPECIAL", 
+          "alias": "RECONCESSÃO ESPECIAL",
+          "description": "Reconcessões de licenças especiais"
+        }
+      ]
+    },
+    {
+      "name": "🏛️ Estrutura de Comandos",
+      "description": "Identificação de unidades, batalhões e comandos",
+      "terms": [
+        { 
+          "term": "MARCELO GRANJA", 
+          "alias": "COMANDO GERAL: CEL GRANJA",
+          "description": "Comandante Geral da PMGO"
+        },
+        { 
+          "term": "DURVALINO CÂMARA", 
+          "alias": "ESTADO MAIOR: CEL CAMARA",
+          "description": "Chefe do Estado Maior"
+        },
+        { 
+          "term": "DANIEL PIRES ALEIXO", 
+          "alias": "COMANDO DA ACADEMIA: CEL ALEIXO",
+          "description": "Comandante da Academia de Polícia"
+        },
+        { 
+          "term": "COMANDANTE DE ENSINO", 
+          "alias": "COMANDO DE ENSINO: TC QUEREN",
+          "description": "Comandante de Ensino"
+        },
+        { 
+          "term": "01º CRPM", 
+          "alias": "1º GOIÂNIA: CEL BATISTA",
+          "description": "1º Comando Regional - Goiânia"
+        },
+        { 
+          "term": "02º CRPM", 
+          "alias": "2º CRPM: TC MORAIS",
+          "description": "2º Comando Regional"
+        },
+        { 
+          "term": "ALYSON FERREIRA SOBRINHO", 
+          "alias": "3º CRPM: CEL ALYSON SOBRINHO",
+          "description": "Comandante do 3º CRPM"
+        },
+        { 
+          "term": "04º CRPM", 
+          "alias": "4º CRPM",
+          "description": "4º Comando Regional"
+        },
+        { 
+          "term": "36º BPM", 
+          "alias": "36º BPM - 2º CRPM",
+          "description": "36º Batalhão - 2º CRPM"
+        },
+        { 
+          "term": "41º BPM", 
+          "alias": "41º BPM - 2º CRPM",
+          "description": "41º Batalhão - 2º CRPM"
+        },
+        { 
+          "term": "48° BPM", 
+          "alias": "48º BPM - 4º CRPM",
+          "description": "48º Batalhão - 4º CRPM"
+        },
+        { 
+          "term": "\\d+º CRPM", 
+          "alias": "COMANDOS REGIONAIS",
+          "type": "regex",
+          "description": "Todos os Comandos Regionais numerados"
+        },
+        { 
+          "term": "\\d+º BPM", 
+          "alias": "BATALHÕES",
+          "type": "regex",
+          "description": "Todos os Batalhões numerados"
+        }
+      ]
+    },  
+    {
+      "name": "👨‍💼 Cadastradores e Responsáveis",
+      "description": "Identifica responsáveis convocados na Escala de Serviço nº 21/2025 (CSIPM) – ordenados por hierarquia",
+      "terms": [
+        { "term": "APARECIDA RÚBIO BONFIM LINS",        "alias": "TEN APARECIDA",   "description": "Tenente Aparecida – Sigla ARBL" },
+        { "term": "SAMUEL BARBOSA FERNANDES",           "alias": "TEN SAMUEL",      "description": "Tenente Samuel – Sigla SBF" },
+        { "term": "ANTÔNIO MARCOS PORTO",               "alias": "SUB ANTÔNIO",     "description": "Subtenente Antônio – Sigla AMP" },
+        { "term": "ANDRÉ LUIS ROSA RAMOS",              "alias": "1SGT ANDRÉ",      "description": "1º Sargento André – Sigla ALRR" },
+        { "term": "MISAEL OLIVEIRA DOS SANTOS",         "alias": "1SGT MISAEL",     "description": "1º Sargento Misael – Sigla MOS" },
+        { "term": "GLEYSON JOSÉ GOULART",               "alias": "1SGT GLEYSON",    "description": "1º Sargento Gleyson – Sigla GJG" },
+        { "term": "EDNILSON CORREA BATISTA",            "alias": "1SGT EDNILSON",   "description": "1º Sargento Ednilson – Sigla ECB" },
+        { "term": "ELVÉCIO ALONSO PINHEIRO",            "alias": "1SGT ELVÉCIO",    "description": "1º Sargento Elvécio – Sigla EAP" },
+        { "term": "ELYSÂNGELA SEIXO CUÊLHO SILVA",      "alias": "1SGT ELYSÂNGELA", "description": "1º Sargento Elysângela – Sigla ESCS" },
+        { "term": "MARCELO DE SOUSA VINHANDELLI",       "alias": "1SGT MARCELO",    "description": "1º Sargento Marcelo – Sigla MSV" },
+        { "term": "ANA MARIA RIBEIRO LIMA",             "alias": "2SGT ANA",        "description": "2º Sargento Ana – Sigla AMRL" },
+        { "term": "CÍNTIA TAIS DE JESUS RAMOS",         "alias": "2SGT CÍNTIA",     "description": "2º Sargento Cíntia – Sigla CTJR" },
+        { "term": "JOSIEL DA SILVA PINTO",              "alias": "2SGT JOSIEL",     "description": "2º Sargento Josiel – Sigla JSP" },
+        { "term": "RICARDO DE FREITAS",                 "alias": "2SGT RICARDO",    "description": "2º Sargento Ricardo – Sigla RDF" },
+        { "term": "JEANE BRITO DOS REIS",               "alias": "2SGT JEANE",      "description": "2º Sargento Jeane – Sigla JBR" },
+        { "term": "REINALDO VIEIRA DOS SANTOS",         "alias": "2SGT REINALDO",   "description": "2º Sargento Reinaldo – Sigla RVDS" },
+        { "term": "ROBSON NIEDSON DE MEDEIROS MARTINS", "alias": "2SGT ROBSON",     "description": "2º Sargento Robson – Sigla RNMM" },
+        { "term": "JACÓ BORGES MORAES",                 "alias": "2SGT JACÓ",       "description": "2º Sargento Jacó – Sigla JBM" },
+        { "term": "EDUARDO BATISTA DA SILVA",           "alias": "2SGT EDUARDO",    "description": "2º Sargento Eduardo – Sigla EBDS" },
+        { "term": "HASSAN ABDEL RAHMAN IBRAHIM JUNIOR", "alias": "2SGT HASSAN",     "description": "2º Sargento Hassan – Sigla HARIJ" },
+        { "term": "DULCINÉIA BRITO FONSECA",            "alias": "2SGT DULCINÉIA",  "description": "2º Sargento Dulcinéia – Sigla DBF" },
+        { "term": "FILIPE HANNIEL CARDOSO CANUTO",      "alias": "2SGT FILIPE",     "description": "2º Sargento Filipe – Sigla FHCC" },
+        { "term": "ENDERSON PEREIRA ALVES",             "alias": "2SGT ENDERSON",   "description": "2º Sargento Enderson – Sigla EPA" },
+        { "term": "EMERSON FERREIRA CAVALCANTE",        "alias": "2SGT EMERSON",    "description": "2º Sargento Emerson – Sigla EFC" },
+        { "term": "ALINE RIBEIRO VENTURAS",             "alias": "3SGT ALINE",      "description": "3º Sargento Aline – Sigla ARV" },
+        { "term": "EDIO TOMAZ MAIA",                    "alias": "3SGT EDIO",       "description": "3º Sargento Edio – Sigla ETM" },
+        { "term": "DEIVID TOBIAS OLIVEIRA",             "alias": "3SGT DEIVID",     "description": "3º Sargento Deivid – Sigla DTO" },
+        { "term": "REGINALDO RODRIGUES DE SÁ",          "alias": "CB REGINALDO",    "description": "Cabo Reginaldo – Sigla RRDS" }
+      ]
+    }
+  ],
+  "pdfSpecificSettings": {
+    "extractionMethods": {
+      "preferredOrder": ["pdfjs", "selection", "canvas"],
+      "fallbackEnabled": true,
+      "maxRetries": 3
+    },
+    "performance": {
+      "chunkSize": 10,
+      "processingDelay": 200,
+      "memoryLimit": "50MB"
+    },
+    "compatibility": {
+      "supportedFormats": ["pdf", "application/pdf"],
+      "minChromeVersion": 88,
+      "requiresPDFJS": true
+    }
+  },
+  "examples": {
+    "basicUsage": "Abra um PDF do Diário Oficial no Chrome e execute a extensão",
+    "regexUsage": "Use 2025\\d{11} para encontrar processos SEI de 2025",
+    "pdfPerformance": "PDFs menores (< 10 páginas) são processados mais rapidamente"
+  },
+  "metadata": {
+    "version": "2.2",
+    "lastUpdated": "2025-01-27",
+    "totalCategories": 10,
+    "totalTerms": 80,
+    "regexPatterns": 22,
+    "pdfOptimized": true
+  }
+}

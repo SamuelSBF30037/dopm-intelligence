@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>DOEPM INTELIGENCE</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="numeracao-styles.css">
+    <link rel="stylesheet" href="analyzer.css">
+    <style>
+        /* CSS INTEGRADO PARA GRÁFICOS FUNCIONAREM AUTOMATICAMENTE */
+        .charts-section {
+            margin: 15px 0;
+            background-color: var(--light-text);
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: var(--shadow);
+        }
+
+        .charts-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 100%;
+        }
+
+        .chart-container {
+            position: relative;
+            width: 100%;
+            height: 280px !important;
+            min-height: 280px !important;
+            background: white;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border: 1px solid #e0e5ef;
+            overflow: hidden;
+            display: block !important;
+            visibility: visible !important;
+        }
+
+        .chart-container h3 {
+            margin: 0 0 15px 0;
+            font-size: 14px;
+            font-weight: 600;
+            color: #333;
+            text-align: center;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        /* DIMENSÕES FIXAS CRÍTICAS PARA OS CANVAS */
+        .chart-container canvas {
+            display: block !important;
+            width: 380px !important;
+            height: 200px !important;
+            max-width: 380px !important;
+            max-height: 200px !important;
+            margin: 10px auto !important;
+            visibility: visible !important;
+            border: 1px solid #ddd !important;
+            background: rgba(255, 255, 255, 0.9) !important;
+        }
+
+        #category-chart, #term-chart {
+            width: 380px !important;
+            height: 200px !important;
+        }
+
+        /* Força visibilidade da aba dashboard */
+        .tab-content[data-content="dashboard"] {
+            min-height: 800px !important;
+        }
+
+        .tab-content[data-content="dashboard"].active {
+            display: block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+        }
+
+        .tab-content.active .chart-container {
+            display: block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+        }
+
+        /* Status dos gráficos */
+        .chart-status {
+            padding: 8px;
+            text-align: center;
+            border-radius: 4px;
+            margin: 5px 0;
+            font-size: 11px;
+            display: none;
+        }
+
+        .chart-status.success {
+            color: #46c93a;
+            background: rgba(70, 201, 58, 0.1);
+            border: 1px solid rgba(70, 201, 58, 0.3);
+            display: block;
+        }
+
+        .chart-status.loading {
+            color: #4a6fff;
+            background: rgba(74, 111, 255, 0.1);
+            border: 1px solid rgba(74, 111, 255, 0.3);
+            display: block;
+        }
+
+        /* Tema escuro */
+        @media (prefers-color-scheme: dark) {
+            .charts-section {
+                background-color: #424952;
+            }
+            
+            .chart-container {
+                background: #383e48;
+                border-color: #555;
+            }
+            
+            .chart-container h3 {
+                color: #fff;
+                border-bottom-color: #555;
+            }
+            
+            .chart-container canvas {
+                border-color: #555;
+            }
+        }
+
+        /* Estilos para abas */
+        .tab-content {
+            display: none !important;
+        }
+        .tab-content.active {
+            display: block !important;
+        }
+    </style>
+</head>
+<body>
+    <!-- Splash Screen -->
+    <div id="splash-screen">
+        <div id="splash-logo">
+            <i class="fas fa-search"></i>
+        </div>
+        <div id="splash-title">DOPM INTELIGENCE</div>
+        <div id="splash-subtitle">Iniciando análise da página...</div>
+        <div class="loading-bar">
+            <div class="loading-bar-progress"></div>
+        </div>
+    </div>
+
+    <!-- Main App Container -->
+    <div id="app-container">
+        <div class="header">
+            <h1>DOEPM INTELIGENCE</h1>
+            <div id="page-info">Carregando informações da página...</div>
+            <button id="refresh-btn" class="refresh-button" title="Atualizar contagem">
+                <i class="fas fa-sync"></i>
+            </button>
+        </div>
+
+        <!-- Navegação entre abas -->
+        <div class="tabs-navigation">
+            <div class="tab active" data-tab="dashboard">
+                <i class="fas fa-chart-pie"></i>
+                <span>Dashboard</span>
+            </div>
+            <div class="tab" data-tab="analyzer">
+                <i class="fas fa-search-plus"></i>
+                <span>Analisador</span>
+            </div>
+            <div class="tab" data-tab="numeracao">
+                <i class="fas fa-list-ol"></i>
+                <span>Conferir Certificados</span>
+            </div>
+        </div>
+
+        <!-- Conteúdo das abas -->
+        <div id="tab-contents">
+            <!-- Conteúdo da aba Dashboard -->
+            <div class="tab-content active" data-content="dashboard" id="dashboard-tab">
+                <div class="dashboard-container">
+                    <!-- Resumo por Categoria -->
+                    <div class="summary-section">
+                        <div class="summary-title">Matérias por Categoria</div>
+                        <div id="category-summary" class="category-summary">
+                            <!-- Categorias serão inseridas aqui dinamicamente -->
+                        </div>
+                    </div>
+                    
+                    <!-- Gráficos com auto-correção integrada -->
+                    <div class="charts-section">
+                        <div class="section-title">
+                            <i class="fas fa-chart-line"></i> Visualização 
+                            <small style="color: #666; font-weight: normal;">(Sistema Interno)</small>
+                        </div>
+                        <div class="charts-container">
+                            <!-- Container do gráfico de categoria -->
+                            <div class="chart-container" id="category-chart-container">
+                                <h3><i class="fas fa-chart-pie"></i> Distribuição por Categoria</h3>
+                                <canvas id="category-chart" width="380" height="200"></canvas>
+                                <div class="chart-status loading" id="category-status">
+                                    <i class="fas fa-cog fa-spin"></i> Inicializando gráfico automaticamente...
+                                </div>
+                            </div>
+                            
+                            <!-- Container do gráfico de termos -->
+                            <div class="chart-container" id="term-chart-container">
+                                <h3><i class="fas fa-chart-bar"></i> Top 10 Termos</h3>
+                                <canvas id="term-chart" width="380" height="200"></canvas>
+                                <div class="chart-status loading" id="term-status">
+                                    <i class="fas fa-cog fa-spin"></i> Inicializando gráfico automaticamente...
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Resultados Detalhados por Categoria -->
+                    <div class="detailed-results-section">
+                        <div class="section-title">Resultados Detalhados</div>
+                        <div id="detailed-results" class="detailed-results-container">
+                            <!-- Resultados serão inseridos aqui dinamicamente -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Conteúdo da aba de Analisador -->
+            <div class="tab-content" data-content="analyzer" id="analyzer-tab">
+                <div class="analyzer-container">
+                    <div class="analyzer-controls">
+                        <button id="run-analysis-btn" class="analyzer-button">
+                            <i class="fas fa-play"></i> Executar Análise
+                        </button>
+                        <button id="clear-analysis-btn" class="analyzer-button danger">
+                            <i class="fas fa-trash-alt"></i> Limpar
+                        </button>
+                    </div>
+                    
+                    <div id="analysis-status" class="analysis-status analysis-status-normal">
+                        Aguardando início da análise...
+                    </div>
+                    
+                    <div id="analysis-results" class="analysis-results">
+                        <!-- Resultados da análise serão inseridos aqui -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Conteúdo da aba de Numeração -->
+            <div class="tab-content" data-content="numeracao" id="numeracao-tab">
+                <!-- Configurações de análise -->
+                <div class="numeracao-config">
+                    <h3>Configuração da Análise de Numeração</h3>
+                    <div class="config-form">
+                        <div class="input-group">
+                            <label for="assinatura-input">Assinatura a ser localizada:</label>
+                            <input type="text" id="assinatura-input" placeholder="Ex: RNMM." value="RNMM.">
+                        </div>
+                        <button id="analisar-numeracao-btn" class="analisar-btn">
+                            <i class="fas fa-search"></i> Analisar
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Estatísticas -->
+                <div id="estatisticas-numeracao" class="estatisticas-numeracao">
+                    <!-- Estatísticas serão inseridas aqui -->
+                </div>
+                
+                <!-- Gráficos -->
+                <div id="graficos-numeracao" class="graficos-numeracao">
+                    <!-- Gráficos serão inseridos aqui -->
+                </div>
+                
+                <!-- Resultados detalhados -->
+                <div id="resultados-numeracao" class="resultados-numeracao">
+                    <div class="resultado-vazio">
+                        <i class="fas fa-search"></i>
+                        <p>Configure a assinatura e clique em Analisar para verificar a numeração do boletim.</p>
+                        <p>O sistema buscará por padrões no formato: "número - O(A)" seguido da assinatura.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mini configurações (acesso rápido) -->
+        <div class="mini-settings">
+            <div class="settings-toggle">
+                <span>Case-sensitive</span>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="case-sensitive">
+                    <span class="toggle-slider"></span>
+                </label>
+            </div>
+            
+            <div class="settings-toggle">
+                <span>Palavras completas</span>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="whole-words" checked>
+                    <span class="toggle-slider"></span>
+                </label>
+            </div>
+            
+            <button id="apply-settings" class="mini-button">
+                <i class="fas fa-check"></i> Aplicar
+            </button>
+        </div>
+    </div>
+
+    <!-- HTML Alternativo para entrada manual de palavras (compatibilidade) -->
+    <div id="manual-input" style="display: none;">
+        <input type="text" class="palavra-input" placeholder="Digite a palavra 1..." />
+        <input type="text" class="palavra-input" placeholder="Digite a palavra 2..." />
+        <input type="text" class="palavra-input" placeholder="Digite a palavra 3..." />
+        <input type="text" class="palavra-input" placeholder="Digite a palavra 4..." />
+        <input type="text" class="palavra-input" placeholder="Digite a palavra 5..." />
+    </div>
+
+    <!-- Scripts da aplicação - SEM CDN EXTERNO -->
+    <script src="tabs-fix.js"></script>
+    <script src="splash.js"></script>
+    <script src="force-complete.js"></script>
+    <script src="embedded-chart.js"></script>
+    <script src="fallback-chart.js"></script>
+    <script src="dashboard-internal-fixed.js"></script>
+    <script src="analyzer.js"></script>
+    <script src="numeracao-analyzer.js"></script>
+    <script src="popup-pdf.js"></script>
+    <script src="aba-debug.js"></script>
+    <script src="chart-status.js"></script>
+    <script src="tabs-control.js"></script>
+</body>
+</html>
